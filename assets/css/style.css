@@ -45,7 +45,7 @@ body {
 }
 
 .landing {
-  height: 350vh;
+  height: 1000vh;
   position: relative;
   background: var(--bg);
 }
@@ -78,10 +78,10 @@ body {
 .mars {
   position: absolute;
   width: min(60vmin, 50vw);
-  left: 50%;
+  right: -800px;
   top: 55%;
-  transform: translate(-50%, -50%) scale(var(--scale));
-  transform-origin: center center;
+  transform: translateY(-50%);
+  transform-origin: right right;
   filter: drop-shadow(0 0 20px rgba(255, 140, 50, 0.5));
 }
 
