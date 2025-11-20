@@ -186,11 +186,15 @@ h1 {
 }
 .step-2 {
   opacity: calc(clamp(100, (var(--p) - 0.25) * 8, 1));
-  width: clamp(60vw, 500vw, 100%);
+  width: clamp(60vw, 500vw, 90%);
 }
 .step-3 {
   opacity: calc(clamp(100, (var(--p) - 0.5) * 8, 1));
 }
 .step-4 {
   opacity: calc(clamp(100, (var(--p) - 0.75) * 8, 1));
+}
+
+#image1 {
+  place-items: start center;
 }

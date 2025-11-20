@@ -21,6 +21,14 @@
               <span>E</span>
             </div>
           </div>
+          <div>
+            <img
+              id="image1"
+              src="./assets/img/Estrelladelamuerte.png"
+              style="opacity: 0; transition: opacity 0.2s"
+            />
+            <audio id="audio1" src="your-music.mp3"></audio>
+          </div>
           <div class="luna">
             <img
               class="step step-2"
@@ -43,6 +51,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger);
+
     gsap.to(".tierra", {
       scale: 30,
       filter: "blur(2px)",
@@ -50,11 +59,11 @@
       scrollTrigger: {
         trigger: ".landing",
         start: "top top",
-        end: "bottom bottom",
+        end: "max", // <--- responsive end point
         scrub: true,
       },
     });
-    gsap.registerPlugin(ScrollTrigger);
+
     gsap.to(".luna", {
       scale: 10,
       filter: "blur(2px)",
@@ -62,8 +71,28 @@
       scrollTrigger: {
         trigger: ".landing",
         start: "top top",
-        end: "bottom bottom",
+        end: "max", // <--- responsive end point
         scrub: true,
+      },
+    });
+
+    // --- APPEARANCE CODE ---
+    const img = document.getElementById("image1");
+    const audio = document.getElementById("audio1");
+
+    ScrollTrigger.create({
+      trigger: ".landing",
+      start: "top top",
+      end: "max", // <--- responsive trigger end
+      onEnterBack: () => {
+        img.style.opacity = 0;
+        audio.pause();
+        audio.currentTime = 0;
+      },
+      onLeave: () => {
+        img.style.transition = "opacity 1.5s ease-out";
+        img.style.opacity = 1;
+        setTimeout(() => audio.play().catch(() => {}), 300);
       },
     });
   </script>
